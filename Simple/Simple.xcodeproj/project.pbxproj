@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		SM000101 /* SimpleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100101 /* SimpleApp.swift */; };
+		SM00010C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010C /* RootView.swift */; };
+		SM000102 /* FRTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100102 /* FRTheme.swift */; };
+		SM000103 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
+		SM000104 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
+		SM000105 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100105 /* RadioStation.swift */; };
+		SM000106 /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100106 /* PlayerStore.swift */; };
+		SM000107 /* ArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100107 /* ArtworkView.swift */; };
+		SM000108 /* StationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100108 /* StationRow.swift */; };
+		SM000109 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100109 /* StationListView.swift */; };
+		SM00010A /* FullPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010A /* FullPlayerView.swift */; };
+		SM00010B /* MiniBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010B /* MiniBarView.swift */; };
+		SM000201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = SM100201 /* Assets.xcassets */; };
+		SM000301 /* FeedMedia in Frameworks */ = {isa = PBXBuildFile; productRef = SMB00001 /* FeedMedia */; };
+		SM000401 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
+		SM000402 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
+		SM000403 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100105 /* RadioStation.swift */; };
+		SM000404 /* TimeFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100401 /* TimeFormatTests.swift */; };
+		SM000405 /* WaveformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100402 /* WaveformTests.swift */; };
+		SM000406 /* RadioStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100403 /* RadioStationTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		SM100101 /* SimpleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleApp.swift; sourceTree = "<group>"; };
+		SM10010C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		SM100102 /* FRTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRTheme.swift; sourceTree = "<group>"; };
+		SM100103 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		SM100104 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
+		SM100105 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
+		SM100106 /* PlayerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
+		SM100107 /* ArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkView.swift; sourceTree = "<group>"; };
+		SM100108 /* StationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRow.swift; sourceTree = "<group>"; };
+		SM100109 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
+		SM10010A /* FullPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPlayerView.swift; sourceTree = "<group>"; };
+		SM10010B /* MiniBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarView.swift; sourceTree = "<group>"; };
+		SM100201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		SM100020 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		SM100401 /* TimeFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatTests.swift; sourceTree = "<group>"; };
+		SM100402 /* WaveformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformTests.swift; sourceTree = "<group>"; };
+		SM100403 /* RadioStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationTests.swift; sourceTree = "<group>"; };
+		SM100030 /* SimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		SM300002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				SM000301 /* FeedMedia in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		SM300005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		SM200001 = {
+			isa = PBXGroup;
+			children = (
+				SM200003 /* Sources */,
+				SM200005 /* Tests */,
+				SM200002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		SM200002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				SM100020 /* Simple.app */,
+				SM100030 /* SimpleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		SM200003 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				SM100101 /* SimpleApp.swift */,
+				SM10010C /* RootView.swift */,
+				SM100102 /* FRTheme.swift */,
+				SM100103 /* TimeFormat.swift */,
+				SM100104 /* Waveform.swift */,
+				SM100105 /* RadioStation.swift */,
+				SM100106 /* PlayerStore.swift */,
+				SM100107 /* ArtworkView.swift */,
+				SM100108 /* StationRow.swift */,
+				SM100109 /* StationListView.swift */,
+				SM10010A /* FullPlayerView.swift */,
+				SM10010B /* MiniBarView.swift */,
+				SM100201 /* Assets.xcassets */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		SM200005 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				SM100401 /* TimeFormatTests.swift */,
+				SM100402 /* WaveformTests.swift */,
+				SM100403 /* RadioStationTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		SM500001 /* Simple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = SM700002 /* Build configuration list for PBXNativeTarget "Simple" */;
+			buildPhases = (
+				SM300001 /* Sources */,
+				SM300002 /* Frameworks */,
+				SM300003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Simple;
+			packageProductDependencies = (
+				SMB00001 /* FeedMedia */,
+			);
+			productName = Simple;
+			productReference = SM100020 /* Simple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		SM500002 /* SimpleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = SM700003 /* Build configuration list for PBXNativeTarget "SimpleTests" */;
+			buildPhases = (
+				SM300004 /* Sources */,
+				SM300005 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTests;
+			packageProductDependencies = (
+			);
+			productName = SimpleTests;
+			productReference = SM100030 /* SimpleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		SM600001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2650;
+				ORGANIZATIONNAME = "Feed Media";
+				TargetAttributes = {
+					SM500002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = SM700001 /* Build configuration list for PBXProject "Simple" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = SM200001;
+			packageReferences = (
+				SMA00001 /* XCRemoteSwiftPackageReference "iOS-SDK" */,
+			);
+			productRefGroup = SM200002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				SM500001 /* Simple */,
+				SM500002 /* SimpleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		SM300003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				SM000201 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		SM300001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				SM000101 /* SimpleApp.swift in Sources */,
+				SM00010C /* RootView.swift in Sources */,
+				SM000102 /* FRTheme.swift in Sources */,
+				SM000103 /* TimeFormat.swift in Sources */,
+				SM000104 /* Waveform.swift in Sources */,
+				SM000105 /* RadioStation.swift in Sources */,
+				SM000106 /* PlayerStore.swift in Sources */,
+				SM000107 /* ArtworkView.swift in Sources */,
+				SM000108 /* StationRow.swift in Sources */,
+				SM000109 /* StationListView.swift in Sources */,
+				SM00010A /* FullPlayerView.swift in Sources */,
+				SM00010B /* MiniBarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		SM300004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				SM000401 /* TimeFormat.swift in Sources */,
+				SM000402 /* Waveform.swift in Sources */,
+				SM000403 /* RadioStation.swift in Sources */,
+				SM000404 /* TimeFormatTests.swift in Sources */,
+				SM000405 /* WaveformTests.swift in Sources */,
+				SM000406 /* RadioStationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		SM800001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		SM800002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		SM800003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.Simple;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		SM800004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.Simple;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		SM800005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.SimpleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		SM800006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PAGEPFEF9A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fm.feed.SimpleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		SM700001 /* Build configuration list for PBXProject "Simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				SM800001 /* Debug */,
+				SM800002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		SM700002 /* Build configuration list for PBXNativeTarget "Simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				SM800003 /* Debug */,
+				SM800004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		SM700003 /* Build configuration list for PBXNativeTarget "SimpleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				SM800005 /* Debug */,
+				SM800006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		SMA00001 /* XCRemoteSwiftPackageReference "iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/feedfm/iOS-SDK";
+			requirement = {
+				kind = exactVersion;
+				version = "5.8.0-beta.1";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		SMB00001 /* FeedMedia */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = SMA00001 /* XCRemoteSwiftPackageReference "iOS-SDK" */;
+			productName = FeedMedia;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = SM600001 /* Project object */;
+}

@@ -1,0 +1,15 @@
+{
+  "originHash" : "74a31518dcd8bbd25492a634a4e48dc84c782adcb9b8ded96c34c1a41d829c31",
+  "pins" : [
+    {
+      "identity" : "ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/feedfm/iOS-SDK",
+      "state" : {
+        "revision" : "0649eb4131f2b03955cf7b7341ee6bc51cba2b97",
+        "version" : "5.8.0-beta.1"
+      }
+    }
+  ],
+  "version" : 3
+}
