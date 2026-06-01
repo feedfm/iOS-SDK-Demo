@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StationListView: View {
-    @ObservedObject var store: PlayerStore
+    let store: PlayerStore
 
     var body: some View {
         ScrollView {

@@ -1,18 +1,14 @@
 import SwiftUI
 
 struct FullPlayerView: View {
-    @ObservedObject var store: PlayerStore
-
-    private var artSeed: Int {
-        (store.stations.firstIndex { $0.id == store.activeStationId }).map { $0 + 1 } ?? 1
-    }
+    let store: PlayerStore
 
     var body: some View {
         VStack(spacing: 0) {
             header
             Spacer(minLength: 0)
             if let station = store.activeStation {
-                ArtworkView(station: station, seed: artSeed, bars: 11, cornerRadius: 24)
+                ArtworkView(station: station, seed: store.artSeed, bars: 11, cornerRadius: 24)
                     .frame(maxWidth: 300)
                     .aspectRatio(1, contentMode: .fit)
                     .shadow(color: .black.opacity(0.5), radius: 30, y: 24)
@@ -20,10 +16,10 @@ struct FullPlayerView: View {
             Spacer(minLength: 0)
             VStack(alignment: .leading, spacing: 5) {
                 Text(store.title)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.title2.bold())
                     .foregroundColor(FRTheme.ink)
                 Text(store.artist)
-                    .font(.system(size: 16))
+                    .font(.body)
                     .foregroundColor(FRTheme.ink2)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -35,14 +31,14 @@ struct FullPlayerView: View {
                 Spacer()
                 Text(store.remaining.map { "-" + TimeFormat.mmss($0) } ?? "--:--")
             }
-            .font(.system(size: 12, design: .monospaced))
+            .font(.system(.caption, design: .monospaced))
             .foregroundColor(FRTheme.ink2)
             .padding(.top, 8)
 
             controls.padding(.top, 22)
 
             Text("Tap the chevron or swipe down to minimize")
-                .font(.system(size: 12))
+                .font(.caption)
                 .foregroundColor(FRTheme.ink3)
                 .padding(.top, 18)
         }
@@ -62,6 +58,9 @@ struct FullPlayerView: View {
                 if value.translation.height > 60 { store.minimize() }
             }
         )
+        // First open: SwiftUI inserts this view at its collapsed (off-screen)
+        // offset, then `onAppear` grows it into place — no timed delay needed.
+        .onAppear { store.expand() }
     }
 
     private var header: some View {
@@ -74,14 +73,15 @@ struct FullPlayerView: View {
                     .background(Color.white.opacity(0.08))
                     .clipShape(Circle())
             }
+            .accessibilityLabel("Minimize player")
             Spacer()
             VStack(spacing: 2) {
                 Text("NOW PLAYING")
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.caption2.weight(.semibold))
                     .tracking(1.2)
                     .foregroundColor(FRTheme.ink3)
                 Text(store.activeStation?.name ?? "")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundColor(FRTheme.ink)
             }
             Spacer()
@@ -95,6 +95,7 @@ struct FullPlayerView: View {
                 system: store.disliked ? "hand.thumbsdown.fill" : "hand.thumbsdown",
                 tint: store.disliked ? FRTheme.dislike : FRTheme.ink2,
                 bg: store.disliked ? FRTheme.dislike.opacity(0.14) : .clear,
+                label: store.disliked ? "Undo dislike" : "Dislike",
                 action: store.toggleDislike
             )
             Spacer()
@@ -107,6 +108,7 @@ struct FullPlayerView: View {
                     .clipShape(Circle())
                     .shadow(color: FRTheme.accent.opacity(0.45), radius: 18, y: 8)
             }
+            .accessibilityLabel(store.isPlaying ? "Pause" : "Play")
             Spacer()
             Button(action: store.next) {
                 Image(systemName: "forward.fill")
@@ -115,18 +117,20 @@ struct FullPlayerView: View {
                     .frame(width: 56, height: 56)
             }
             .disabled(!store.canSkip)
+            .accessibilityLabel("Skip")
             Spacer()
             sideButton(
                 system: store.liked ? "hand.thumbsup.fill" : "hand.thumbsup",
                 tint: store.liked ? FRTheme.accent : FRTheme.ink2,
                 bg: store.liked ? FRTheme.accentSoft : .clear,
+                label: store.liked ? "Undo like" : "Like",
                 action: store.toggleLike
             )
         }
     }
 
     private func sideButton(system: String, tint: Color, bg: Color,
-                            action: @escaping () -> Void) -> some View {
+                            label: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: system)
                 .font(.system(size: 26))
@@ -135,6 +139,7 @@ struct FullPlayerView: View {
                 .background(bg)
                 .clipShape(Circle())
         }
+        .accessibilityLabel(label)
     }
 }
 

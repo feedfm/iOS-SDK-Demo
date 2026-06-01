@@ -1,9 +1,10 @@
 import SwiftUI
+import Observation
 import FeedMedia
 
 @main
 struct SimpleApp: App {
-    @StateObject private var availability = PlayerAvailability()
+    @State private var availability = PlayerAvailability()
 
     var body: some Scene {
         WindowGroup {
@@ -28,9 +29,10 @@ struct SimpleApp: App {
 }
 
 /// Configures the player with the demo credentials and tracks availability.
-final class PlayerAvailability: ObservableObject {
+@Observable @MainActor
+final class PlayerAvailability {
     enum Status { case loading, available, unavailable }
-    @Published var status: Status = .loading
+    private(set) var status: Status = .loading
 
     init() {
         FMLogSetLevel(FMLogLevelDebug)

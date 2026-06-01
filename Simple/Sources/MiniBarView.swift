@@ -1,27 +1,23 @@
 import SwiftUI
 
 struct MiniBarView: View {
-    @ObservedObject var store: PlayerStore
-
-    private var artSeed: Int {
-        (store.stations.firstIndex { $0.id == store.activeStationId }).map { $0 + 1 } ?? 1
-    }
+    let store: PlayerStore
 
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 12) {
                 if let station = store.activeStation {
-                    ArtworkView(station: station, seed: artSeed, bars: 6, cornerRadius: 9)
+                    ArtworkView(station: station, seed: store.artSeed, bars: 6, cornerRadius: 9)
                         .frame(width: 46, height: 46)
                         .padding(EdgeInsets(top: 0 , leading: 8 , bottom: 0, trailing: 8))
                 }
                 VStack(alignment: .leading, spacing: 2) {
                     Text(store.title)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                         .foregroundColor(FRTheme.ink)
                         .lineLimit(1)
                     Text(store.artist)
-                        .font(.system(size: 12))
+                        .font(.caption)
                         .foregroundColor(FRTheme.ink2)
                         .lineLimit(1)
                 }
@@ -33,6 +29,7 @@ struct MiniBarView: View {
                         .frame(width: 44, height: 44)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(store.isPlaying ? "Pause" : "Play")
             }
             .padding(.horizontal, 8)
             .frame(maxWidth: .infinity, maxHeight: .infinity)

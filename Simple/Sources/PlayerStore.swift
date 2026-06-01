@@ -1,31 +1,37 @@
 import SwiftUI
+import Observation
 import FeedMedia
 
-/// Observable wrapper around `FMAudioPlayer.shared()`. Mirrors SwiftDemo's
+/// Observable wrapper around `FMAudioPlayer.shared(). Uses the SDK's
 /// notification-driven pattern and exposes display state + intents to the UI.
-final class PlayerStore: ObservableObject {
+@Observable @MainActor
+final class PlayerStore {
     // Library
-    @Published private(set) var stations: [RadioStation] = []
+    private(set) var stations: [RadioStation] = []
 
     // Now playing
-    @Published private(set) var activeStationId: String?
-    @Published private(set) var title = ""
-    @Published private(set) var artist = ""
-    @Published private(set) var isPlaying = false
-    @Published private(set) var canSkip = false
-    @Published private(set) var liked = false
-    @Published private(set) var disliked = false
-    @Published private(set) var elapsed: Double = 0
-    @Published private(set) var duration: Double = 0
+    private(set) var activeStationId: String?
+    private(set) var title = ""
+    private(set) var artist = ""
+    private(set) var isPlaying = false
+    private(set) var canSkip = false
+    private(set) var liked = false
+    private(set) var disliked = false
+    private(set) var elapsed: Double = 0
+    private(set) var duration: Double = 0
 
     // UI
-    @Published var isOpen = false
-    @Published var isExpanded = false
+    var isOpen = false
+    var isExpanded = false
 
-    private let player = FMAudioPlayer.shared()
+    @ObservationIgnored private let player = FMAudioPlayer.shared()
 
     var activeStation: RadioStation? {
         stations.first { $0.id == activeStationId }
+    }
+    /// Index-derived seed for the active station's fallback artwork.
+    var artSeed: Int {
+        (stations.firstIndex { $0.id == activeStationId }).map { $0 + 1 } ?? 1
     }
     /// Remaining seconds, or nil when the current item has no known duration.
     var remaining: Double? {
@@ -36,6 +42,25 @@ final class PlayerStore: ObservableObject {
     }
 
     init() {
+        reloadStations()
+        sync()
+        observe()
+
+        // `stationList` is empty until the player becomes available, which may
+        // happen after this store is constructed. `whenAvailable` fires the
+        // first closure immediately if the player is already available, or
+        // later once it becomes available — so the list loads in both cases.
+        player.whenAvailable({ [weak self] in
+            self?.reloadStations()
+        }, notAvailable: {})
+    }
+
+    /// Rebuilds the display station list from the player's current `stationList`.
+    ///
+    /// Safe to call repeatedly. It runs automatically once the player becomes
+    /// available; call it again after `FMAudioPlayer.updateSession(_:)` refreshes
+    /// the list, since the SDK posts no notification for that change.
+    func reloadStations() {
         let sdkStations = (player.stationList as? [FMStation]) ?? []
         stations = sdkStations.enumerated().map { idx, s in
             RadioStation(id: s.identifier,
@@ -43,14 +68,18 @@ final class PlayerStore: ObservableObject {
                          options: (s.options as? [String: Any]) ?? [:],
                          index: idx)
         }
-        activeStationId = player.activeStation.identifier
-        sync()
-        observe()
+        // `activeStation` is declared non-null but the SDK returns nil before
+        // the player is initialized, so bridge through an optional.
+        let active: FMStation? = player.activeStation
+        activeStationId = active?.identifier
     }
 
-    deinit { NotificationCenter.default.removeObserver(self) }
-
     private func observe() {
+        // No matching `removeObserver` is needed: since iOS 9 the selector-based
+        // API stores observers as zeroing weak references, so the center neither
+        // retains this store nor messages it after deallocation. (A manual remove
+        // would be required only for the block-based `addObserver(forName:...)`,
+        // which retains its closure.)
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(stateChanged),
                        name: .FMAudioPlayerPlaybackStateDidChange, object: player)
@@ -99,25 +128,35 @@ final class PlayerStore: ObservableObject {
         disliked = player.currentItem?.disliked ?? false
     }
     @objc private func stationChanged() {
-        activeStationId = player.activeStation.identifier
+        let active: FMStation? = player.activeStation
+        activeStationId = active?.identifier
     }
 
     // MARK: Intents
 
     func select(_ station: RadioStation) {
+        // Tapping the already-active station just re-opens the full player.
         if isOpen && activeStationId == station.id {
             expand()
             return
         }
         guard let fm = (player.stationList as? [FMStation])?
             .first(where: { $0.identifier == station.id }) else { return }
+
+        let alreadyOpen = isOpen
         player.setActiveStation(fm, withCrossfade: false)
         _ = player.play()
         isOpen = true
-        isExpanded = false
-        // render the mini first, then grow into the full sheet
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) { [weak self] in
-            self?.expand()
+
+        if alreadyOpen {
+            // The player is already on screen (mini or minimized) — its
+            // off-screen frame is committed, so we can grow straight up.
+            expand()
+        } else {
+            // First open: start collapsed so the sheet has an off-screen frame
+            // to animate from. `FullPlayerView.onAppear` triggers the expansion
+            // once SwiftUI has committed that initial layout.
+            isExpanded = false
         }
     }
 

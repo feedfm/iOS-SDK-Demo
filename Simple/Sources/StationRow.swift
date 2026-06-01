@@ -14,11 +14,11 @@ struct StationRow: View {
                     .padding(EdgeInsets(top: 0 , leading: 14, bottom: 0, trailing: 8))
                 VStack(alignment: .leading, spacing: 3) {
                     Text(station.name)
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.headline)
                         .foregroundColor(FRTheme.ink)
                     if let sub = station.subheader {
                         Text(sub)
-                            .font(.system(size: 13))
+                            .font(.subheadline)
                             .foregroundColor(FRTheme.ink2)
                             .lineLimit(1)
                     }
@@ -28,6 +28,7 @@ struct StationRow: View {
                     .font(.system(size: 18))
                     .foregroundColor(FRTheme.accent)
                     .padding([ .horizontal ])
+                    .accessibilityHidden(true)
             }
             .padding(8)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,5 +40,8 @@ struct StationRow: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(station.name)
+        .accessibilityValue(isActive ? "Playing" : "")
+        .accessibilityHint(isActive ? "Opens the player" : "Plays this station")
     }
 }

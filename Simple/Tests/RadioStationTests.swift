@@ -1,42 +1,43 @@
-import XCTest
+import Foundation
+import Testing
 
-final class RadioStationTests: XCTestCase {
-    func testParsesNameAndId() {
+struct RadioStationTests {
+    @Test func parsesNameAndId() {
         let s = RadioStation(id: "abc", name: "Deep Focus", options: [:], index: 0)
-        XCTAssertEqual(s.id, "abc")
-        XCTAssertEqual(s.name, "Deep Focus")
+        #expect(s.id == "abc")
+        #expect(s.name == "Deep Focus")
     }
 
-    func testParsesSubheaderWhenPresent() {
+    @Test func parsesSubheaderWhenPresent() {
         let s = RadioStation(id: "1", name: "X",
                              options: ["subheader": "Minimal beats for flow"], index: 0)
-        XCTAssertEqual(s.subheader, "Minimal beats for flow")
+        #expect(s.subheader == "Minimal beats for flow")
     }
 
-    func testSubheaderNilWhenMissingOrEmpty() {
-        XCTAssertNil(RadioStation(id: "1", name: "X", options: [:], index: 0).subheader)
-        XCTAssertNil(RadioStation(id: "1", name: "X", options: ["subheader": ""], index: 0).subheader)
+    @Test func subheaderNilWhenMissingOrEmpty() {
+        #expect(RadioStation(id: "1", name: "X", options: [:], index: 0).subheader == nil)
+        #expect(RadioStation(id: "1", name: "X", options: ["subheader": ""], index: 0).subheader == nil)
     }
 
-    func testParsesBackgroundImageURLWhenValid() {
+    @Test func parsesBackgroundImageURLWhenValid() {
         let s = RadioStation(id: "1", name: "X",
                              options: ["background_image_url": "https://example.com/a.jpg"], index: 0)
-        XCTAssertEqual(s.backgroundImageURL, URL(string: "https://example.com/a.jpg"))
+        #expect(s.backgroundImageURL == URL(string: "https://example.com/a.jpg"))
     }
 
-    func testBackgroundImageURLNilWhenMissing() {
-        XCTAssertNil(RadioStation(id: "1", name: "X", options: [:], index: 0).backgroundImageURL)
+    @Test func backgroundImageURLNilWhenMissing() {
+        #expect(RadioStation(id: "1", name: "X", options: [:], index: 0).backgroundImageURL == nil)
     }
 
-    func testGradientIsDeterministicByIndex() {
+    @Test func gradientIsDeterministicByIndex() {
         let palette = RadioStation.gradientPalette
-        XCTAssertEqual(RadioStation(id: "1", name: "X", options: [:], index: 0).gradient, palette[0])
-        XCTAssertEqual(RadioStation(id: "1", name: "X", options: [:], index: 1).gradient, palette[1])
+        #expect(RadioStation(id: "1", name: "X", options: [:], index: 0).gradient == palette[0])
+        #expect(RadioStation(id: "1", name: "X", options: [:], index: 1).gradient == palette[1])
     }
 
-    func testGradientWrapsAroundPalette() {
+    @Test func gradientWrapsAroundPalette() {
         let palette = RadioStation.gradientPalette
         let wrapped = RadioStation(id: "1", name: "X", options: [:], index: palette.count).gradient
-        XCTAssertEqual(wrapped, palette[0])
+        #expect(wrapped == palette[0])
     }
 }

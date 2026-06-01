@@ -1,13 +1,11 @@
 import SwiftUI
 
 struct RootView: View {
-    @StateObject private var store = PlayerStore()
+    @State private var store = PlayerStore()
 
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .bottom) {
-                FRTheme.screenBG.ignoresSafeArea()
-
                 StationListView(store: store)
 
                 if store.isOpen {
@@ -26,6 +24,5 @@ struct RootView: View {
                 }
             }
         }
-        .preferredColorScheme(.dark)
     }
 }

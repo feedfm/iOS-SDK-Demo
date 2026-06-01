@@ -1,8 +1,7 @@
 import Foundation
 
 /// Deterministic bar-graph "waveform" heights for fallback station artwork,
-/// ported from the design bundle's `data.jsx` generator. Seeds are expected to
-/// be non-negative (station indices).
+/// Seeds are expected to be non-negative (station indices).
 enum Waveform {
     /// Returns `bars` heights in `0.32...0.94`, deterministic for a given `seed`.
     static func barHeights(seed: Int, bars: Int) -> [Double] {
