@@ -34,22 +34,12 @@ final class PlayerAvailability: ObservableObject {
 
     init() {
         FMLogSetLevel(FMLogLevelDebug)
-        FMAudioPlayer.setClientToken("demo", secret: "demo", withClientID: Self.clientID())
+        FMAudioPlayer.setClientToken("demo", secret: "demo")
 
         FMAudioPlayer.shared().whenAvailable({ [weak self] in
             self?.status = .available
         }, notAvailable: { [weak self] in
             self?.status = .unavailable
         })
-    }
-
-    /// A stable per-install client id.
-    private static func clientID() -> String {
-        let key = "fm.feed.Simple.clientID"
-        if let existing = UserDefaults.standard.string(forKey: key) { return existing }
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let id = String((0..<10).map { _ in letters.randomElement()! })
-        UserDefaults.standard.set(id, forKey: key)
-        return id
     }
 }
