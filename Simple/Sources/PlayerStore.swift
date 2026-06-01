@@ -46,10 +46,14 @@ final class PlayerStore {
         sync()
         observe()
 
-        // `stationList` is empty until the player becomes available, which may
-        // happen after this store is constructed. `whenAvailable` fires the
-        // first closure immediately if the player is already available, or
-        // later once it becomes available — so the list loads in both cases.
+        // This isn't strictly required in this app: `RootView` (and therefore
+        // this store) is only constructed once the player is already available,
+        // so the `reloadStations()` call above already has the station list.
+        // It's only needed if the store were initialized *before* the player
+        // became available — `stationList` is empty until then. `whenAvailable`
+        // fires the first closure immediately if the player is already
+        // available, or later once it becomes available, so the list loads in
+        // both cases.
         player.whenAvailable({ [weak self] in
             self?.reloadStations()
         }, notAvailable: {})
