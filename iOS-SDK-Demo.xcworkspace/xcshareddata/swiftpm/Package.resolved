@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/feedfm/iOS-SDK",
       "state" : {
-        "revision" : "0649eb4131f2b03955cf7b7341ee6bc51cba2b97",
-        "version" : "5.8.0-beta.1"
+        "revision" : "24a8d553138286e43eaf2c9ef85bec28ff6cf1e8",
+        "version" : "5.8.0"
       }
     }
   ],

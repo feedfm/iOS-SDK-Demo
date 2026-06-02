@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		SM000101 /* SimpleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100101 /* SimpleApp.swift */; };
-		SM00010C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010C /* RootView.swift */; };
 		SM000102 /* FRTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100102 /* FRTheme.swift */; };
 		SM000103 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
 		SM000104 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
@@ -19,6 +18,7 @@
 		SM000109 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100109 /* StationListView.swift */; };
 		SM00010A /* FullPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010A /* FullPlayerView.swift */; };
 		SM00010B /* MiniBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010B /* MiniBarView.swift */; };
+		SM00010C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010C /* RootView.swift */; };
 		SM000201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = SM100201 /* Assets.xcassets */; };
 		SM000301 /* FeedMedia in Frameworks */ = {isa = PBXBuildFile; productRef = SMB00001 /* FeedMedia */; };
 		SM000401 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
@@ -30,8 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		SM100020 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		SM100030 /* SimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		SM100101 /* SimpleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleApp.swift; sourceTree = "<group>"; };
-		SM10010C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		SM100102 /* FRTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRTheme.swift; sourceTree = "<group>"; };
 		SM100103 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		SM100104 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
@@ -42,13 +43,12 @@
 		SM100109 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
 		SM10010A /* FullPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPlayerView.swift; sourceTree = "<group>"; };
 		SM10010B /* MiniBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBarView.swift; sourceTree = "<group>"; };
+		SM10010C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		SM100201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		SM100210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		SM100020 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		SM100401 /* TimeFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatTests.swift; sourceTree = "<group>"; };
 		SM100402 /* WaveformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformTests.swift; sourceTree = "<group>"; };
 		SM100403 /* RadioStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationTests.swift; sourceTree = "<group>"; };
-		SM100030 /* SimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,8 +307,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,8 +338,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,7 +430,7 @@
 			repositoryURL = "https://github.com/feedfm/iOS-SDK";
 			requirement = {
 				kind = exactVersion;
-				version = "5.8.0-beta.1";
+				version = 5.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
