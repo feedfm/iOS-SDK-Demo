@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Required for audio to keep playing when the app is backgrounded or the
+	     screen is locked. The FeedMedia SDK manages the AVAudioSession, lock-screen
+	     metadata, and remote controls, but only the app can declare this capability.
+	     The remaining Info.plist keys (orientations, scene manifest, launch screen)
+	     are still generated from the target's INFOPLIST_KEY_* build settings and
+	     merged in at build time. -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+</dict>
+</plist>

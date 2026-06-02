@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import Observation
 import FeedMedia
 
@@ -25,6 +26,10 @@ final class PlayerStore {
     var isExpanded = false
 
     @ObservationIgnored private let player = FMAudioPlayer.shared()
+
+    // Active station whose artwork is being loaded for the lock screen, used to
+    // discard a slow async image load if the station changes before it finishes.
+    @ObservationIgnored private var artworkStationId: String?
 
     var activeStation: RadioStation? {
         stations.first { $0.id == activeStationId }
@@ -134,6 +139,34 @@ final class PlayerStore {
     @objc private func stationChanged() {
         let active: FMStation? = player.activeStation
         activeStationId = active?.identifier
+        updateLockScreenArtwork()
+    }
+
+    /// Renders artwork for the active station and hands it to the SDK to show on
+    /// the lock screen. The SDK already supplies the track title/artist/album and
+    /// playback controls; this just adds the image. Stations with a remote image
+    /// load it over the network; the rest render the gradient/waveform fallback.
+    private func updateLockScreenArtwork() {
+        guard let station = activeStation else { return }
+        let id = station.id
+        artworkStationId = id
+
+        if let url = station.backgroundImageURL {
+            Task { [weak self] in
+                guard let (data, _) = try? await URLSession.shared.data(from: url),
+                      let image = UIImage(data: data) else { return }
+                // Ignore a load that finished after the user moved to another station.
+                guard let self, self.artworkStationId == id else { return }
+                self.player.setLockScreenImage(image)
+            }
+        } else {
+            let renderer = ImageRenderer(
+                content: StationArtwork(gradient: station.gradient, seed: artSeed, bars: 11)
+                    .frame(width: 600, height: 600))
+            if let image = renderer.uiImage {
+                player.setLockScreenImage(image)
+            }
+        }
     }
 
     // MARK: Intents

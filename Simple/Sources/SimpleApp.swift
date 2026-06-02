@@ -38,6 +38,15 @@ final class PlayerAvailability {
         FMLogSetLevel(FMLogLevelDebug)
         FMAudioPlayer.setClientToken("demo", secret: "demo")
 
+        // The SDK manages the AVAudioSession, lock-screen Now Playing metadata,
+        // and remote (play/pause/skip/like/dislike) commands for us. Its default
+        // session options include `.duckOthers`, which keeps the app out of the
+        // lock-screen "Now Playing" interface; clearing the options makes this
+        // app the Now Playing app so its controls and metadata appear there.
+        // (Background playback additionally requires the `audio` UIBackgroundMode,
+        // declared in the target's Info.plist.)
+        FMAudioPlayer.shared().setAVAudioSessionCategory(.playback, mode: .default, options: [])
+
         FMAudioPlayer.shared().whenAvailable({ [weak self] in
             self?.status = .available
         }, notAvailable: { [weak self] in

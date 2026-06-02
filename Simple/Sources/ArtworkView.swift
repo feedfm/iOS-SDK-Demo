@@ -26,8 +26,21 @@ struct ArtworkView: View {
     }
 
     private var fallback: some View {
+        StationArtwork(gradient: station.gradient, seed: seed, bars: bars)
+    }
+}
+
+/// The brand-gradient + waveform fallback artwork, with no clipping or remote
+/// image. Used by `ArtworkView`'s fallback on screen and rendered to a `UIImage`
+/// for the lock screen (see `PlayerStore.updateLockScreenArtwork`).
+struct StationArtwork: View {
+    let gradient: [String]
+    var seed: Int = 1
+    var bars: Int = 7
+
+    var body: some View {
         ZStack {
-            FRTheme.artworkGradient(station.gradient)
+            FRTheme.artworkGradient(gradient)
             LinearGradient(colors: [Color.white.opacity(0.22), .clear],
                            startPoint: .topLeading, endPoint: .center)
                 .blendMode(.screen)
