@@ -4,6 +4,7 @@ struct StationRow: View {
     let station: RadioStation
     let index: Int
     let isActive: Bool
+    let isPlaying: Bool
     let onTap: () -> Void
 
     var body: some View {
@@ -24,7 +25,7 @@ struct StationRow: View {
                     }
                 }
                 Spacer(minLength: 8)
-                Image(systemName: isActive ? "pause.fill" : "play.fill")
+                Image(systemName: isActive && isPlaying ? "pause.fill" : "play.fill")
                     .font(.system(size: 18))
                     .foregroundColor(FRTheme.accent)
                     .padding([ .horizontal ])
@@ -41,7 +42,7 @@ struct StationRow: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(station.name)
-        .accessibilityValue(isActive ? "Playing" : "")
+        .accessibilityValue(isActive ? (isPlaying ? "Playing" : "Paused") : "")
         .accessibilityHint(isActive ? "Opens the player" : "Plays this station")
     }
 }

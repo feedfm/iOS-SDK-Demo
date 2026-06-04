@@ -19,7 +19,8 @@ struct StationListView: View {
                     StationRow(
                         station: station,
                         index: idx,
-                        isActive: store.isOpen && store.activeStationId == station.id
+                        isActive: store.isOpen && store.activeStationId == station.id,
+                        isPlaying: store.isPlaying
                     ) {
                         store.select(station)
                     }

@@ -179,8 +179,10 @@ final class PlayerStore {
     // MARK: Intents
 
     func select(_ station: RadioStation) {
-        // Tapping the already-active station just re-opens the full player.
+        // Tapping the already-active station resumes playback if it was
+        // paused, and re-opens the full player.
         if isOpen && activeStationId == station.id {
+            if !isPlaying { _ = player.play() }
             expand()
             return
         }
