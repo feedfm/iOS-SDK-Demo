@@ -2,6 +2,7 @@ import SwiftUI
 
 struct FullPlayerView: View {
     let store: PlayerStore
+    @State private var isShowingDisclaimer = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -37,10 +38,14 @@ struct FullPlayerView: View {
 
             controls.padding(.top, 22)
 
-            Text("Powered by Feed.fm")
-                .font(.caption)
-                .foregroundColor(FRTheme.ink3)
-                .padding(.top, 18)
+            Button { isShowingDisclaimer = true } label: {
+                Text("Powered by Feed.fm")
+                    .font(.caption)
+                    .foregroundColor(FRTheme.ink3)
+            }
+            .buttonStyle(.plain)
+            .padding(.top, 18)
+            .accessibilityHint("Shows the music licensing disclaimer")
         }
         .padding(.horizontal, 28)
         .padding(.top, 12)
@@ -61,6 +66,7 @@ struct FullPlayerView: View {
         // First open: SwiftUI inserts this view at its collapsed (off-screen)
         // offset, then `onAppear` grows it into place — no timed delay needed.
         .onAppear { store.expand() }
+        .sheet(isPresented: $isShowingDisclaimer) { DisclaimerView() }
     }
 
     private var header: some View {

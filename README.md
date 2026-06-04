@@ -49,6 +49,7 @@ observable store that bridges SDK notifications to SwiftUI state.
 | `MiniBarView.swift`, `FullPlayerView.swift` | Playback UI. |
 | `MarqueeText.swift` | SwiftUI wrapper around the SDK's `FMMarqueeLabel`; text scrolls when too wide to fit, stays static otherwise. |
 | `MetadataFormat.swift` | Pure helper that joins artist and album into one display line. |
+| `DisclaimerView.swift` | Music licensing disclaimer sheet, opened from the "Powered by Feed.fm" attribution in the full player. |
 | `RadioStation.swift` | A display model decoupled from the SDK's `FMStation`, built from a plain options dictionary so it's easy to test. |
 | `ArtworkView.swift`, `Waveform.swift`, `FRTheme.swift` | Artwork rendering and theming. |
 | `TimeFormat.swift` | Elapsed / remaining time formatting. |

@@ -12,6 +12,7 @@
 		SM000103 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
 		SM00010D /* MetadataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010D /* MetadataFormat.swift */; };
 		SM00010E /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010E /* MarqueeText.swift */; };
+		SM00010F /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010F /* DisclaimerView.swift */; };
 		SM000104 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
 		SM000105 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100105 /* RadioStation.swift */; };
 		SM000106 /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100106 /* PlayerStore.swift */; };
@@ -41,6 +42,7 @@
 		SM100103 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		SM10010D /* MetadataFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataFormat.swift; sourceTree = "<group>"; };
 		SM10010E /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		SM10010F /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 		SM100104 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
 		SM100105 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		SM100106 /* PlayerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				SM100106 /* PlayerStore.swift */,
 				SM100107 /* ArtworkView.swift */,
 				SM10010E /* MarqueeText.swift */,
+				SM10010F /* DisclaimerView.swift */,
 				SM100108 /* StationRow.swift */,
 				SM100109 /* StationListView.swift */,
 				SM10010A /* FullPlayerView.swift */,
@@ -234,6 +237,7 @@
 				SM000106 /* PlayerStore.swift in Sources */,
 				SM000107 /* ArtworkView.swift in Sources */,
 				SM00010E /* MarqueeText.swift in Sources */,
+				SM00010F /* DisclaimerView.swift in Sources */,
 				SM000108 /* StationRow.swift in Sources */,
 				SM000109 /* StationListView.swift in Sources */,
 				SM00010A /* FullPlayerView.swift in Sources */,
