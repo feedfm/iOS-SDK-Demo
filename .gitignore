@@ -15,3 +15,6 @@ xcuserdata/
 # Swift Package Manager
 .swiftpm/
 .build/
+
+# Local planning/working documents
+docs/
