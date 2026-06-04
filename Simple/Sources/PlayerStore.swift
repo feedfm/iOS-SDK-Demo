@@ -14,6 +14,7 @@ final class PlayerStore {
     private(set) var activeStationId: String?
     private(set) var title = ""
     private(set) var artist = ""
+    private(set) var album = ""
     private(set) var isPlaying = false
     private(set) var canSkip = false
     private(set) var liked = false
@@ -44,6 +45,10 @@ final class PlayerStore {
     }
     var progress: Double {
         duration > 0 ? min(1, max(0, elapsed / duration)) : 0
+    }
+    /// "Artist - Album" display line, omitting whichever part is missing.
+    var artistAlbum: String {
+        MetadataFormat.artistAlbum(artist: artist, album: album)
     }
 
     init() {
@@ -108,6 +113,7 @@ final class PlayerStore {
         let item = player.currentItem
         title = item?.name ?? ""
         artist = item?.artist ?? ""
+        album = item?.album ?? ""
         duration = item?.duration ?? 0
         elapsed = player.currentPlaybackTime
         isPlaying = player.playbackState == .playing
@@ -124,6 +130,7 @@ final class PlayerStore {
         let item = player.currentItem
         title = item?.name ?? ""
         artist = item?.artist ?? ""
+        album = item?.album ?? ""
         duration = item?.duration ?? 0
         elapsed = 0
         canSkip = player.canSkip

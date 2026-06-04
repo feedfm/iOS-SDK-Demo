@@ -47,6 +47,8 @@ observable store that bridges SDK notifications to SwiftUI state.
 | `RootView.swift` | Composes the station list with the mini bar and the expanding full player. |
 | `StationListView.swift`, `StationRow.swift` | Station browsing UI. |
 | `MiniBarView.swift`, `FullPlayerView.swift` | Playback UI. |
+| `MarqueeText.swift` | SwiftUI wrapper around the SDK's `FMMarqueeLabel`; text scrolls when too wide to fit, stays static otherwise. |
+| `MetadataFormat.swift` | Pure helper that joins artist and album into one display line. |
 | `RadioStation.swift` | A display model decoupled from the SDK's `FMStation`, built from a plain options dictionary so it's easy to test. |
 | `ArtworkView.swift`, `Waveform.swift`, `FRTheme.swift` | Artwork rendering and theming. |
 | `TimeFormat.swift` | Elapsed / remaining time formatting. |

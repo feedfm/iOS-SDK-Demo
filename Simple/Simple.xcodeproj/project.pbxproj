@@ -10,6 +10,8 @@
 		SM000101 /* SimpleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100101 /* SimpleApp.swift */; };
 		SM000102 /* FRTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100102 /* FRTheme.swift */; };
 		SM000103 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
+		SM00010D /* MetadataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010D /* MetadataFormat.swift */; };
+		SM00010E /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010E /* MarqueeText.swift */; };
 		SM000104 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
 		SM000105 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100105 /* RadioStation.swift */; };
 		SM000106 /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100106 /* PlayerStore.swift */; };
@@ -22,11 +24,13 @@
 		SM000201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = SM100201 /* Assets.xcassets */; };
 		SM000301 /* FeedMedia in Frameworks */ = {isa = PBXBuildFile; productRef = SMB00001 /* FeedMedia */; };
 		SM000401 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100103 /* TimeFormat.swift */; };
+		SM000407 /* MetadataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM10010D /* MetadataFormat.swift */; };
 		SM000402 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100104 /* Waveform.swift */; };
 		SM000403 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100105 /* RadioStation.swift */; };
 		SM000404 /* TimeFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100401 /* TimeFormatTests.swift */; };
 		SM000405 /* WaveformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100402 /* WaveformTests.swift */; };
 		SM000406 /* RadioStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100403 /* RadioStationTests.swift */; };
+		SM000408 /* MetadataFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = SM100404 /* MetadataFormatTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,8 @@
 		SM100101 /* SimpleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleApp.swift; sourceTree = "<group>"; };
 		SM100102 /* FRTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRTheme.swift; sourceTree = "<group>"; };
 		SM100103 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		SM10010D /* MetadataFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataFormat.swift; sourceTree = "<group>"; };
+		SM10010E /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		SM100104 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
 		SM100105 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
 		SM100106 /* PlayerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 		SM100401 /* TimeFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatTests.swift; sourceTree = "<group>"; };
 		SM100402 /* WaveformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformTests.swift; sourceTree = "<group>"; };
 		SM100403 /* RadioStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationTests.swift; sourceTree = "<group>"; };
+		SM100404 /* MetadataFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataFormatTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +102,12 @@
 				SM10010C /* RootView.swift */,
 				SM100102 /* FRTheme.swift */,
 				SM100103 /* TimeFormat.swift */,
+				SM10010D /* MetadataFormat.swift */,
 				SM100104 /* Waveform.swift */,
 				SM100105 /* RadioStation.swift */,
 				SM100106 /* PlayerStore.swift */,
 				SM100107 /* ArtworkView.swift */,
+				SM10010E /* MarqueeText.swift */,
 				SM100108 /* StationRow.swift */,
 				SM100109 /* StationListView.swift */,
 				SM10010A /* FullPlayerView.swift */,
@@ -115,6 +124,7 @@
 				SM100401 /* TimeFormatTests.swift */,
 				SM100402 /* WaveformTests.swift */,
 				SM100403 /* RadioStationTests.swift */,
+				SM100404 /* MetadataFormatTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -218,10 +228,12 @@
 				SM00010C /* RootView.swift in Sources */,
 				SM000102 /* FRTheme.swift in Sources */,
 				SM000103 /* TimeFormat.swift in Sources */,
+				SM00010D /* MetadataFormat.swift in Sources */,
 				SM000104 /* Waveform.swift in Sources */,
 				SM000105 /* RadioStation.swift in Sources */,
 				SM000106 /* PlayerStore.swift in Sources */,
 				SM000107 /* ArtworkView.swift in Sources */,
+				SM00010E /* MarqueeText.swift in Sources */,
 				SM000108 /* StationRow.swift in Sources */,
 				SM000109 /* StationListView.swift in Sources */,
 				SM00010A /* FullPlayerView.swift in Sources */,
@@ -234,11 +246,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				SM000401 /* TimeFormat.swift in Sources */,
+				SM000407 /* MetadataFormat.swift in Sources */,
 				SM000402 /* Waveform.swift in Sources */,
 				SM000403 /* RadioStation.swift in Sources */,
 				SM000404 /* TimeFormatTests.swift in Sources */,
 				SM000405 /* WaveformTests.swift in Sources */,
 				SM000406 /* RadioStationTests.swift in Sources */,
+				SM000408 /* MetadataFormatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

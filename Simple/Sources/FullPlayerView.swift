@@ -18,9 +18,9 @@ struct FullPlayerView: View {
                 Text(store.title)
                     .font(.title2.bold())
                     .foregroundColor(FRTheme.ink)
-                Text(store.artist)
-                    .font(.body)
-                    .foregroundColor(FRTheme.ink2)
+                MarqueeText(text: store.artistAlbum,
+                            font: .preferredFont(forTextStyle: .body),
+                            color: FRTheme.ink2)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.bottom, 18)

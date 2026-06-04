@@ -12,14 +12,13 @@ struct MiniBarView: View {
                         .padding(EdgeInsets(top: 0 , leading: 8 , bottom: 0, trailing: 8))
                 }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(store.title)
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundColor(FRTheme.ink)
-                        .lineLimit(1)
-                    Text(store.artist)
-                        .font(.caption)
-                        .foregroundColor(FRTheme.ink2)
-                        .lineLimit(1)
+                    MarqueeText(text: store.title,
+                                font: .systemFont(ofSize: UIFont.preferredFont(forTextStyle: .subheadline).pointSize,
+                                                  weight: .semibold),
+                                color: FRTheme.ink)
+                    MarqueeText(text: store.artistAlbum,
+                                font: .preferredFont(forTextStyle: .caption1),
+                                color: FRTheme.ink2)
                 }
                 Spacer(minLength: 8)
                 Button(action: store.togglePlay) {
