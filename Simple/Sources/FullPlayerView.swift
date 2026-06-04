@@ -37,7 +37,7 @@ struct FullPlayerView: View {
 
             controls.padding(.top, 22)
 
-            Text("Tap the chevron or swipe down to minimize")
+            Text("Powered by Feed.fm")
                 .font(.caption)
                 .foregroundColor(FRTheme.ink3)
                 .padding(.top, 18)
