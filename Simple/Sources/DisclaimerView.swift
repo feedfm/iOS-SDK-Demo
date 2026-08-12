@@ -49,7 +49,9 @@ struct DisclaimerView: View {
                     Color.clear.preference(key: SheetHeightKey.self, value: geo.size.height)
                 }
             )
-            .onPreferenceChange(SheetHeightKey.self) { contentHeight = $0 }
+            .onPreferenceChange(SheetHeightKey.self) { newValue in
+                MainActor.assumeIsolated { contentHeight = newValue }
+            }
             .presentationDetents([.height(contentHeight > 0 ? contentHeight : estimatedHeight)])
             .presentationDragIndicator(.visible)
             .presentationBackground(FRTheme.screenBG)
